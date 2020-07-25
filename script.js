@@ -4,21 +4,18 @@ window.addEventListener("load", function() {
       return response.json()
    }).then(function(jsonArray){
       console.log(jsonArray);
-      let planetData = ""
-      for (planetData of jsonArray){
          document.getElementById("missionTarget").innerHTML =
       `   
       <h2>Mission Destination</h2>
 <ol>
-   <li>Name: ${jsonArray.name}</li>
-   <li>Diameter: ${jsonArray.diameter}</li>
-   <li>Star: ${jsonArray.star}</li>
-   <li>Distance from Earth: ${jsonArray.distance}</li>
-   <li>Number of Moons: ${jsonArray.moons}</li>
+   <li>Name: ${jsonArray[0].name}</li>
+   <li>Diameter: ${jsonArray[0].diameter}</li>
+   <li>Star: ${jsonArray[0].star}</li>
+   <li>Distance from Earth: ${jsonArray[0].distance}</li>
+   <li>Number of Moons: ${jsonArray[0].moons}</li>
 </ol>
-<img src="${jsonArray.image}"></img>
+<img src="${jsonArray[0].image}"></img>
       `   
-      }
    })
    let form = document.querySelector("launchForm");
       launchForm.addEventListener("submit", function(event) {
